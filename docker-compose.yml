@@ -1,0 +1,43 @@
+version: '3'
+services:
+    nginx:
+        image: nginx:latest
+        ports:
+          - "80:80"
+          - "443:443"
+        volumes:
+          - ./docker/nginx/conf:/etc/nginx/conf.d
+          - ./docker/nginx/ssl:/etc/nginx/ssl
+          - ./:/var/www
+          - ./docker/nginx/log:/var/log/nginx/
+        links:
+          - php
+    php:
+        build: ./docker/php
+        volumes:
+          - ./:/var/www
+        links:
+          - mysql
+        working_dir: /var/www
+    mysql:
+        image: mysql:5.7
+        ports:
+          - "1306:3306"
+        environment:
+          - MYSQL_ROOT_PASSWORD=1234567890
+          - MYSQL_DATABASE=larablog_db
+        volumes:
+          - ./storage/docker/mysql:/var/lib/mysql
+        command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+          - "8306:80"
+        links:
+          - mysql:db
+    node:
+        image: node:8-alpine
+        volumes:
+            - ./:/var/www
+        working_dir: /var/www
+        tty: true
