@@ -15,9 +15,12 @@ Sample blog on Laravel 5.7
 
 - git clone git@github.com:nezvinskiy/larablog.git
 - sudo chmod -R 777 ./storage
+- cp .env.example .env
+- make docker-build
 - make composer-install
 - make dockphp-artisan-migrate
 - make dockyarn-install
+- make dockyarn-run-dev
 
 ## About Laravel
 
