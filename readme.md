@@ -11,7 +11,7 @@
 
 Sample blog on Laravel 5.7
 
-# Installation
+## Installation
 
 - git clone git@github.com:nezvinskiy/larablog.git
 - sudo chmod -R 777 ./storage
@@ -21,6 +21,13 @@ Sample blog on Laravel 5.7
 - make dockphp-artisan-migrate
 - make dockyarn-install
 - make dockyarn-run-dev
+
+## Open your browser
+
+https://localhost/
+
+## phpMyAdmin
+http://localhost:8306/
 
 ## About Laravel
 
