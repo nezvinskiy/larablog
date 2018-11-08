@@ -1,5 +1,20 @@
 # make dock...
 
+docker-up:
+	docker-compose up -d
+
+docker-ps:
+	docker-compose ps
+
+docker-build:
+	docker-compose up --build -d
+
+docker-stop:
+	docker-compose stop
+
+composer-install:
+	docker-compose exec php php composer.phar install
+
 dockphp-artisan-make-auth:
 	docker-compose exec php php artisan make:auth
 

@@ -15,7 +15,7 @@ Sample blog on Laravel 5.7
 
 - git clone git@github.com:nezvinskiy/larablog.git
 - sudo chmod -R 777 ./storage
-- composer.phar install
+- make composer-install
 - make dockphp-artisan-migrate
 - make dockyarn-install
 
