@@ -38,6 +38,6 @@ services:
     node:
         image: node:8-alpine
         volumes:
-            - ./:/var/www
+          - ./:/var/www
         working_dir: /var/www
         tty: true

@@ -11,6 +11,14 @@
 
 Sample blog on Laravel 5.7
 
+# Installation
+
+- git clone git@github.com:nezvinskiy/larablog.git
+- sudo chmod -R 777 ./storage
+- composer.phar install
+- make dockphp-artisan-migrate
+- make dockyarn-install
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
