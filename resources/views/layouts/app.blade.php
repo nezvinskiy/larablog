@@ -73,7 +73,25 @@
         </nav>
 
         <main class="py-4">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+
+                        @section('breadcrumb')
+                            <nav aria-label="breadcrumb">
+
+                                {{ Breadcrumbs::render() }}
+
+                            </nav>
+                        @show
+
+                    </div>
+                </div>
+            </div>
+
             @yield('content')
+
         </main>
     </div>
 </body>
