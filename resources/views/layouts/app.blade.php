@@ -86,6 +86,8 @@
                             </nav>
                         @show
 
+                        @include('flash::message')
+
                     </div>
                 </div>
             </div>
