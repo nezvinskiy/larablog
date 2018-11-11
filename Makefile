@@ -21,6 +21,9 @@ dockphp-artisan-make-auth:
 dockphp-artisan-migrate:
 	docker-compose exec php php artisan migrate
 
+dockphp-artisan-storage-link:
+	docker-compose exec php php artisan storage:link
+
 docknpm-install:
 	docker-compose exec node npm install
 
