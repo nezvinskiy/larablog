@@ -19,9 +19,8 @@
             </div>
 
             <div class="card-body">
-
-                @if (count($categories))
-                    <ul class="list-group">
+                <ul class="list-group">
+                    @if (count($categories))
                         @foreach ($categories as $category)
                             <li class="list-group-item">
                                 <a href="{{ route('category.show', [$category]) }}">
@@ -29,9 +28,12 @@
                                 </a>
                             </li>
                         @endforeach
-                    </ul>
-                @endif
-
+                    @else
+                        <li class="list-group-item">
+                            {{ __('No categories') }}
+                        </li>
+                    @endif
+                </ul>
             </div>
         </div>
     </div>

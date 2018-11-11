@@ -115,17 +115,51 @@
                                 {{ __('Statistics') }}
                             </div>
                             <div class="card-body">
-                                @if (count($statistics))
-                                    <ul class="list-group">
-
+                                <ul class="list-group">
+                                    @if (count($statistics))
                                         @foreach ($statistics as $key => $value)
                                             <li class="list-group-item">
                                                 {{ $value['web_browser'] }}: {{ $value['total'] }}
                                             </li>
                                         @endforeach
+                                    @else
+                                        <li class="list-group-item">
+                                            {{ __('No statistics') }}
+                                        </li>
+                                    @endif
+                                </ul>
+                            </div>
+                        </div>
 
-                                    </ul>
-                                @endif
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <div class="row justify-content-between">
+                                    <div class="col text-left">
+                                        {{ __('Categories') }}
+                                    </div>
+                                    <div class="col text-right">
+                                        <a href="{{ route('category.create') }}">
+                                            {{ __('Add') }}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group">
+                                    @if (count($categories))
+                                        @foreach ($categories as $category)
+                                            <li class="list-group-item">
+                                                <a href="{{ route('category.show', [$category]) }}">
+                                                    {{ $category->name }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    @else
+                                        <li class="list-group-item">
+                                            {{ __('No categories') }}
+                                        </li>
+                                    @endif
+                                </ul>
                             </div>
                         </div>
 
