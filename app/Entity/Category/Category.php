@@ -11,4 +11,14 @@ class Category extends Model
     protected $guarded = ['id'];
 
     public $timestamps = false;
+
+    public function comments()
+    {
+        return $this->hasMany(\App\Entity\Category\Comment::class, 'category_id', 'id');
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(\App\Entity\Post\Post::class, 'category_id', 'id');
+    }
 }

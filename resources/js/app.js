@@ -22,6 +22,47 @@ require('./bootstrap');
 // });
 
 $(document).ready(function() {
-    // Your code here.
+
     $('#flash-overlay-modal').modal();
+
+    $("#formComment").submit(function(event) {
+
+        let form = $(this);
+        let url = form.attr('action');
+
+        let errorList = $('#formCommentErrorList');
+
+        let commentTemplate = $('.js-comment-template');
+        let commentList = $('#commentList');
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(),
+            success: function(response) {
+
+                let comment = commentTemplate.clone()
+                    .removeClass('js-comment-template d-none');
+
+                comment.appendTo(commentList);
+
+                comment.find('.js-comment-author').text(response.data.author);
+                comment.find('.js-comment-date').text(response.data.created_at);
+                comment.find('.js-comment-content').text(response.data.content);
+            },
+            error: function(data) {
+                let response = data.responseJSON.errors;
+
+                errorList.html('');
+
+                if (response) {
+                    $.each(response, function(i) {
+                        errorList.append('<li>' + response[i] + '</li>');
+                    });
+                }
+            }
+        });
+
+        event.preventDefault();
+    });
 });

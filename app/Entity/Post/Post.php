@@ -17,6 +17,12 @@ class Post extends Model
         return $this->hasMany(\App\Entity\Post\File::class, 'post_id', 'id');
     }
 
+    public function comments()
+    {
+        return $this->hasMany(\App\Entity\Post\Comment::class, 'post_id', 'id')
+            ->orderBy('id', 'asc');
+    }
+
     public function category()
     {
         return $this->belongsTo(\App\Entity\Category\Category::class, 'category_id', 'id');

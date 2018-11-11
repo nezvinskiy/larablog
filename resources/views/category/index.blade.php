@@ -22,10 +22,23 @@
                 <ul class="list-group">
                     @if (count($categories))
                         @foreach ($categories as $category)
-                            <li class="list-group-item">
-                                <a href="{{ route('category.show', [$category]) }}">
-                                    {{ $category->name }}
-                                </a>
+                            <li class="list-group-item mb-3">
+                                <div class="row justify-content-between">
+                                    <div class="col">
+                                        <h4>
+                                            <a href="{{ route('category.show', [$category]) }}">
+                                                {{ $category->name }}
+                                            </a>
+                                        </h4>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-between">
+                                    <div class="col">
+                                        {!! $category->description !!}
+                                    </div>
+                                </div>
+
                             </li>
                         @endforeach
                     @else

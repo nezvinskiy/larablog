@@ -60,6 +60,12 @@
                     </ul>
                 @endif
 
+                <hr>
+
+                <h3>{{ __('Comments') }}</h3>
+
+                @include('partials._comments', ['model' => $post, 'formAction' => route('comment.post', $post)])
+
             </div>
         </div>
     </div>

@@ -138,7 +138,7 @@
                                         {{ __('Categories') }}
                                     </div>
                                     <div class="col text-right">
-                                        <a href="{{ route('category.create') }}">
+                                        <a href="{{ route('category.create') }}" class="btn btn-primary btn-sm">
                                             {{ __('Add') }}
                                         </a>
                                     </div>

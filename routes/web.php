@@ -26,3 +26,11 @@ Route::resource('category', 'CategoryController')
 
 Route::resource('post', 'PostController')
     ->middleware(['stat']);
+
+Route::post('/comment/{post}/post', 'CommentController@post')
+    ->name('comment.post')
+    ->middleware(['stat']);
+
+Route::post('/comment/{category}/category', 'CommentController@category')
+    ->name('comment.category')
+    ->middleware(['stat']);

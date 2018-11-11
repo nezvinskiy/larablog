@@ -100,6 +100,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        foreach ($category->comments as $oldComment) {
+            $oldComment->comment->delete();
+        }
+
         $category->delete();
 
         flash(__('Successfully deleted'))->success();
