@@ -35,6 +35,8 @@ $(document).ready(function() {
         let commentTemplate = $('.js-comment-template');
         let commentList = $('#commentList');
 
+        errorList.html('');
+
         $.ajax({
             type: "POST",
             url: url,
@@ -49,12 +51,11 @@ $(document).ready(function() {
                 comment.find('.js-comment-author').text(response.data.author);
                 comment.find('.js-comment-date').text(response.data.created_at);
                 comment.find('.js-comment-content').text(response.data.content);
+
+                form.each(function(){ this.reset() });
             },
             error: function(data) {
                 let response = data.responseJSON.errors;
-
-                errorList.html('');
-
                 if (response) {
                     $.each(response, function(i) {
                         errorList.append('<li>' + response[i] + '</li>');
