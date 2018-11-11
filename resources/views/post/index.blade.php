@@ -19,9 +19,8 @@
             </div>
 
             <div class="card-body">
-
-                @if (count($posts))
-                    <ul class="list-group">
+                <ul class="list-group">
+                    @if (count($posts))
                         @foreach ($posts as $post)
                             <li class="list-group-item">
                                 <a href="{{ route('post.show', [$post]) }}">
@@ -29,9 +28,12 @@
                                 </a>
                             </li>
                         @endforeach
-                    </ul>
-                @endif
-
+                    @else
+                        <li class="list-group-item">
+                            {{ __('No posts') }}
+                        </li>
+                    @endif
+                </ul>
             </div>
         </div>
     </div>
