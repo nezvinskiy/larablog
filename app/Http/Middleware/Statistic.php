@@ -3,10 +3,17 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\Entity\Statistic\Statistic as ModelStatistic;
+use App\UseCases\Statistic\StatisticService;
 
 class Statistic
 {
+    protected $service;
+
+    public function __construct(StatisticService $service)
+    {
+        $this->service = $service;
+    }
+
     /**
      * Handle an incoming request.
      *
@@ -16,19 +23,7 @@ class Statistic
      */
     public function handle($request, Closure $next)
     {
-        if (!$request->session()->has('visitor')) {
-
-            $browser = get_browser(null, true);
-
-            $stat = ModelStatistic::make([
-                'ip_address' => $request->ip(),
-                'web_browser' => $browser['browser'] ?? 'Not defined',
-            ]);
-            $stat->saveOrFail();
-
-        } else {
-            $request->session()->put('visitor', true);
-        }
+        $this->service->add($request);
 
         return $next($request);
     }

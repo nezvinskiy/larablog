@@ -11,14 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+//
+//Auth::routes();
 
-Auth::routes();
+Route::get('/', 'HomeController@index')
+    ->name('home')
+    ->middleware(['stat']);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('category', 'CategoryController')
+    ->middleware(['stat']);
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('post', 'PostController')
+    ->middleware(['stat']);
