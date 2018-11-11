@@ -22,7 +22,7 @@ Sample blog on Laravel 5.7
 - make dockphp-artisan-migrate
 - make dockphp-artisan-storage-link
 - make dockyarn-install
-- make dockyarn-run-dev
+- make dockyarn-run-dev OR make dockyarn-run-prod
 
 ## Open your browser
 
