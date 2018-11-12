@@ -15,6 +15,7 @@ Sample blog on Laravel 5.7
 
 ### Via Docker Compose
 - git clone git@github.com:nezvinskiy/larablog.git
+- cd larablog
 - sudo chmod -R 777 ./storage
 - cp .env.example .env
 - make docker-build
